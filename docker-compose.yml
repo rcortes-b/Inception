@@ -10,6 +10,9 @@ services:
       - "443:443"
     restart: always
     env_file: .env
+    depends_on:
+      - wordpress
+      - mariadb
     networks:
       inception:
   wordpress:
@@ -19,6 +22,8 @@ services:
       - wordpress-volume:/var/www/html
     restart: always
     env_file: .env
+    depends_on:
+      - mariadb
     networks:
       inception: 
   mariadb:
@@ -40,13 +45,13 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /home/rcortes-b/data/wordpress
+      device: /home/rcortes-/data/wordpress
       o: bind
   mariadb-volume:
     name: mariadb-volume
     driver: local
     driver_opts:
       type: none
-      device: /home/rcortes-b/data/mariadb
+      device: /home/rcortes-/data/mariadb
       o: bind
 
