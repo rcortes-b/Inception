@@ -2,7 +2,7 @@ FROM debian:latest
 
 RUN apt update -y && apt upgrade -y
 RUN apt install curl -y && apt install php-fpm -y
-RUN apt install php-mysqli -y && apt install mariadb-client -y
+RUN apt install php-mysqli php-mysql -y && apt install mariadb-client -y
 
 EXPOSE 9000
 
