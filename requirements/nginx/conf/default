@@ -62,7 +62,7 @@ server {
 	#	include snippets/fastcgi-php.conf;
 	#
 	#	# With php-fpm (or other unix sockets):
-		fastcgi_pass wp-php:9000;
+		fastcgi_pass wordpress:9000;
 	#	# With php-cgi (or other tcp sockets):
 		fastcgi_index index.php;
 		include fastcgi.conf;
@@ -86,12 +86,13 @@ server {
 #	listen 80;
 #	listen [::]:80;
 #
-#	server_name example.com;
+#	server_name rcortes-.42.fr;
 #
+#	return 301 https://$host$request_uri;
 #	root /var/www/example.com;
 #	index index.html;
 #
 #	location / {
 #		try_files $uri $uri/ =404;
-#	}
+#	
 #}
